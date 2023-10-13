@@ -1,0 +1,131 @@
+.loading-container {
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	background: rgb(5, 147, 71);
+	display: block;
+}
+
+.loading-container .loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.loader-row {
+	display: block;
+	float: left;
+	height: 30vmin;
+	width: 10vmin;
+	background: white;
+	
+	-webkit-animation: loader 1s ease-in-out infinite, camera-change 5s ease-in-out infinite;
+	-moz-animation: loader 1s ease-in-out infinite, camera-change 5s ease-in-out infinite;
+	animation: loader 1s ease-in-out infinite, camera-change 10s ease-in-out infinite;
+	
+	transform-style: preserve-3d;
+	
+	-webkit-animation-delay: 0s, 1s;
+	-moz-animation-delay: 0s, 1s;
+	animation-delay: 0s, 1s;
+}
+
+.loader-row:before {
+	content: "";
+	display: block;
+	height: 10vmin;
+	width: 10vmin;
+	background: rgb(240, 240, 240);
+	transform-origin: top;
+	-webkit-transform: rotateX(90deg);
+	-moz-transform: rotateX(90deg);
+	transform: rotateX(90deg);
+	z-index: 1;
+}
+
+.loader-row:after {
+	content: "";
+	display: block;
+	height: 100%;
+	width: 10vmin;
+	background: rgb(240, 240, 240);
+	transform-origin: right;
+	-webkit-transform: rotateY(90deg);
+	-moz-transform: rotateY(90deg);
+	transform: rotateY(90deg);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.loader-row:nth-child(even) {
+	margin: 0 10vmin;
+}
+
+.loader-row:nth-child(2) {
+	-webkit-animation-delay: 0.3s, 1s; /* Delay the second animation of camera change by 1 second, so at first there is only 2D*/
+	-moz-animation-delay: 0.3s, 1s;
+	animation-delay: 0.53, 1s;
+}
+
+.loader-row:nth-child(3) {
+	-webkit-animation-delay: .66s, 1s;
+	-moz-animation-delay: .66s, 1s;
+	animation-delay: .66s, 1s;
+}
+
+@-webkit-keyframes loader {
+	50% {
+		margin-top: 20vmin;
+		height: 10vmin;
+	}
+}
+
+@-moz-keyframes loader {
+	50% {
+		margin-top: 20vmin;
+		height: 10vmin;
+	}
+}
+
+@keyframes loader {
+	50% {
+		margin-top: 20vmin;
+		height: 10vmin;
+	}
+}
+
+@-webkit-keyframes camera-change {
+	50% {
+		-webkit-transform: rotateX(40deg) rotateY(60deg);
+	}
+	75% {
+		-webkit-transform: rotateX(0deg) rotateY(0deg);
+	}
+}
+
+@-moz-keyframes camera-change {
+	50% {
+		-moz-transform: rotateX(40deg) rotateY(60deg);
+	}
+	75% {
+		-moz-transform: rotateX(0deg) rotateY(0deg);
+	}
+}
+
+@keyframes camera-change {
+	50% {
+		transform: rotateX(40deg) rotateY(60deg);
+	}
+	75% {
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+}
